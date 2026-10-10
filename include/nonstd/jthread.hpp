@@ -26,13 +26,11 @@
 
 // tweak header support:
 
-#ifdef __has_include
-# if __has_include(<nonstd/jthread.tweak.hpp>)
-#  include <nonstd/jthread.tweak.hpp>
-# endif
-#define jthread_HAVE_TWEAK_HEADER  1
+#if defined(__has_include) && __has_include(<nonstd/jthread.tweak.hpp>)
+# include <nonstd/jthread.tweak.hpp>
+# define jthread_HAVE_TWEAK_HEADER  1
 #else
-#define jthread_HAVE_TWEAK_HEADER  0
+# define jthread_HAVE_TWEAK_HEADER  0
 //# pragma message("jthread.hpp: Note: Tweak header not supported.")
 #endif
 
